@@ -18,10 +18,12 @@ jobs:
       run: |
         BRANCH_NAME=$(echo $GITHUB_HEAD_REF)
         ISSUE_NUMBER=$(echo $BRANCH_NAME | grep -oP 'VREW-\K\d+')
-        echo $BRANCH_NAME
+        echo "branch is ${BRANCH_NAME}"
+        echo "jira issue number is ${BRANCH_NAME}"
         CURRENT_BODY=$(gh pr view $PR_NUMBER --json body -q .body)
-        echo $CURRENT_BODY
-        JIRA_LINK="\n\n## [JIRA ISSUE](https://voyagerx.atlassian.net/browse/VREW-$ISSUE_NUMBER)\n\n---\n"
-        echo $JIRA_LINK
+        JIRA_LINK="\n## [JIRA ISSUE](https://voyagerx.atlassian.net/browse/VREW-$ISSUE_NUMBER)\n\n---\n"
+        NEW_BODY="${JIRA_LINK}${CURRENT_BODY}"
+        gh pr edit $PR_NUMBER --body "$NEW_BODY"
+        echo "done"
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
