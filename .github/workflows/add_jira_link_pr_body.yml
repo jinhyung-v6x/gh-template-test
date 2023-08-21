@@ -13,6 +13,9 @@ jobs:
   add_jira_link:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Add Jira Link
       run: |
         ISSUE_NUMBER=$(echo $BRANCH_NAME | grep -oP 'VREW-\K\d+')
