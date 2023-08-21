@@ -4,6 +4,9 @@ on:
     types: [opened]
     branches: [ main ]
 
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
 jobs:
   add_jira_link:
     runs-on: ubuntu-latest
@@ -14,6 +17,11 @@ jobs:
     - name: Prepend PR Description with Jira Link
       run: |
         BRANCH_NAME=$(echo $GITHUB_HEAD_REF)
+        ISSUE_NUMBER=$(echo $BRANCH_NAME | grep -oP 'VREW-\K\d+')
         echo $BRANCH_NAME
+        CURRENT_BODY=$(gh pr view $PR_NUMBER --json body -q .body)
+        echo $CURRENT_BODY
+        JIRA_LINK="\n\n## [JIRA ISSUE](https://voyagerx.atlassian.net/browse/VREW-$ISSUE_NUMBER)\n\n---\n"
+        echo $JIRA_LINK
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
