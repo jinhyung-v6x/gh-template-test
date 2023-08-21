@@ -23,8 +23,8 @@ jobs:
         echo "base name: ${BASE_NAME}"
         echo "issue number: ${ISSUE_NUMBER}"
         CURRENT_BODY=$(gh pr view $PR_NUMBER --json body -q .body)
-        JIRA_LINK=$(echo -e "\n## [JIRA ISSUE HERE](https://voyagerx.atlassian.net/browse/VREW-$ISSUE_NUMBER)\n")
-        NEW_BODY="${JIRA_LINK}${CURRENT_BODY}"
+        JIRA_LINK='\n## [JIRA ISSUE HERE](https://voyagerx.atlassian.net/browse/VREW-$ISSUE_NUMBER)\n---\n'
+        NEW_BODY='${JIRA_LINK}${CURRENT_BODY}'
         gh pr edit $PR_NUMBER --body "$NEW_BODY"
         echo "done"
       env:
