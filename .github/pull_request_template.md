@@ -6,8 +6,10 @@
 - 서브 리뷰어(opt.):
 
 
+<br/>
+<br/>
 <details>
-  <summary>Reviewee, Main Reviewer, Sub Reviewer란?</summary>
+  <summary>Reviewee, Main Reviewer, Sub Reviewer 에 대해서</summary>
   <br />
 **Reviewee**는
 - 리뷰어를 지정하고 희망 리뷰 시점을 적어주세요.
