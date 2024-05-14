@@ -11,6 +11,7 @@
 <details>
   <summary>Reviewee, Main Reviewer, Sub Reviewer 에 대해서</summary>
   <br />
+  
 **Reviewee**는
 - 리뷰어를 지정하고 희망 리뷰 시점을 적어주세요.
 - 코드의 내용을 공유하고 싶은 사람이나 참고하면 좋겠는 사람이 있다면 서브 리뷰어로 PR 본문에 멘션해 주세요.
