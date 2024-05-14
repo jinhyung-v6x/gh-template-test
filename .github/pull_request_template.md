@@ -15,6 +15,7 @@
 
 <details>
   <summary>Main/Sub Reviewer 설명</summary>
+  <br />
   
 **Main Reviewer**는
 - 태그가 달리면 리뷰 가능 시점을 알리거나, 리소스가 여의치 않으면 리뷰가 어려움을 알려주세요.
